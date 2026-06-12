@@ -42,6 +42,16 @@
   box-shadow: 1px 1px 3px var(--netizen-hint-shadow);
 }
 
+.pill-btn[disabled] {
+  opacity: 0.5;
+  cursor: default;
+}
+
+.pill-btn[disabled]:hover {
+  box-shadow: none;
+  transform: none;
+}
+
 
 /* secondary pill button */
 
@@ -80,6 +90,11 @@
 
 .pill-btn--secondary:focus-visible:after {
   opacity: 1;
+}
+
+.pill-btn--secondary[disabled]:hover {
+  color: var(--netizen-meta);
+  background-color: var(--bg-color);
 }
 
 

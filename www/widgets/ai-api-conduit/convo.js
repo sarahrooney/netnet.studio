@@ -170,7 +170,7 @@ window.CONVOS['ai-api-conduit'] = (self) => {
     }
   }, {
     id: 'check-ollama',
-    content: 'There are definitely lots of open source <a href="https://ollama.com/search" target="_blank">models available for download</a>, but remember, because these run locally you need to download them first, you can visi <a href="http://localhost:11434/api/tags" target="_blank">http://localhost:11434/api/tags</a> to check which you\'ve got',
+    content: 'There are definitely lots of open source <a href="https://ollama.com/search" target="_blank">models available for download</a>, but remember, because these run locally you need to download them first. You can visit <a href="http://localhost:11434/api/tags" target="_blank">http://localhost:11434/api/tags</a> to check which you\'ve got',
     options: {
       'got it': (e) => e.hide(),
       'I don\'t see anything?': (e) => e.goTo('ollama-not-running')
@@ -262,7 +262,7 @@ window.CONVOS['ai-api-conduit'] = (self) => {
     }
   }, {
     id: 'sys-traceable',
-    content: 'Once you\'re a pro, it\'s best to copy+paste code snippets to save time, but while you\'re learning it\'s important to type code out yourself, even if that\'s code you\'re copying from somewhere else, this has been proven to help you retain core concepts better. The <b>LLM Code Snippets</b> widget allows you to copy+paste a code snippet <i>only after</i> you\'ve re-typed or "traced" over it.',
+    content: 'Once you\'re a pro, it\'s best to copy+paste code snippets to save time, but while you\'re learning it\'s important to type code out yourself, even if that\'s code you\'re copying from somewhere else. This has been proven to help you retain core concepts better. The <b>LLM Code Snippets</b> widget allows you to copy+paste a code snippet <i>only after</i> you\'ve re-typed or "traced" over it.',
     options: {
       'got it': (e) => e.hide()
     }
