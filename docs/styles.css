@@ -116,14 +116,6 @@ div > a:not(.pill-btn):not(.highlight):hover,
 	overflow-y: auto;
 }
 
-/* .docs__panel__section {
-	display: block;
-  position: sticky;
-  top: 0;
-	margin: calc(var(--doc-padding) * 2) 0;
-} */
-
-
 /*
  * docs panel > intro
  */
@@ -346,7 +338,7 @@ div > a:not(.pill-btn):not(.highlight):hover,
 
 .docs__panel__list-item > .docs__panel__list {
   padding-left: 0;
-  margin-top: 10px;
+  margin-top: 8px;
 }
 
 .docs__panel__list-item > .docs__panel__list a:before {
