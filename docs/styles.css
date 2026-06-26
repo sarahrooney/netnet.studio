@@ -113,7 +113,7 @@ div > a:not(.pill-btn):not(.highlight):hover,
 
 	z-index: 2;
 
-	overflow-y: auto;
+	overflow-y: hidden;
 }
 
 /*
@@ -279,6 +279,8 @@ div > a:not(.pill-btn):not(.highlight):hover,
  */
 .docs__panel > .docs__panel__list {
   margin: var(--doc-padding) 0;
+  overflow-y: scroll;
+  height: calc(100vh - 74px - (var(--doc-padding) * 6)); /* 74px accounts for height of search bar and header, minus doc padding * 6 for padding */
 }
 
 .docs__panel > .docs__panel__list > .docs__panel__list-item {
@@ -452,7 +454,7 @@ div > a:not(.pill-btn):not(.highlight):hover,
 
   .docs__panel > .docs__panel__search {
     top: 53px;
-    width: 55vw;
+    width: 60vw;
     max-width: 380px;
     margin-top: 0;
     z-index: 1;
@@ -472,10 +474,23 @@ div > a:not(.pill-btn):not(.highlight):hover,
   .docs__panel > .docs__panel__list {
     top: 53px;
     height: calc(100vh - 53px);
-    width: 55vw;
+    width: 60vw;
     max-width: 380px;
     margin: 0;
     padding: 60px calc(var(--doc-padding) * 2) 0;
+  }
+
+  .docs__panel > .docs__panel__list > .docs__panel__list-item {
+    margin-bottom: 14px;
+  }
+
+  .docs__panel > .docs__panel__list > .docs__panel__list-item a:before {
+    top: 0;
+    font-size: 19px;
+  }
+
+  .docs__panel .docs__panel__list-item a {
+    font-size: 16px;
   }
 
   .docs__panel.open {

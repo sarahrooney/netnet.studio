@@ -1,6 +1,6 @@
 # Other Notes
 
-Here you'll find miscellaneous information about netnet's various inner-workings.
+Here, you'll find miscellaneous information about netnet's various inner-workings.
 
 ---
 
