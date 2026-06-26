@@ -169,7 +169,7 @@ window.utils = {
       auto;
   }
 </style>
-<script src="https://cdn.jsdelivr.net/gh/netizenorg/netnet-standard-library/build/nn.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/netizenorg/netnet-standard-library@1.0.1/build/nn.min.js"></script>
 <script>
   /* global nn */
 
@@ -600,6 +600,7 @@ window.utils = {
   },
 
   loadGHRedirect: () => {
+    if (window.plausible) window.plausible('github_auth')
     // code set by WIDGETS['student-session'].authGitHubSession()
     let code = window.localStorage.getItem('gh-auth-temp-code')
     // code might be an encoded hash, or a template or a gh root URL
