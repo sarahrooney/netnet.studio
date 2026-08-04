@@ -24,6 +24,10 @@ const initWidgets = [
 // •.¸¸¸.•*•.¸¸¸.•*•.¸¸¸.•*•.¸¸¸.•*•.¸¸¸.•*•.¸¸¸.•*•.¸¸¸.•*•.¸¸¸.•*•.¸¸¸.•*
 // •.¸¸¸.•*•.¸¸¸.•*•.¸¸¸.•*•.¸¸¸.•*•.¸¸¸.•*•.¸¸¸.•*•.¸¸¸.•* EVENT LISTENERS
 
+NNE.on('code-update', () => {
+  if (NNE.iframe) utils.setupOutputScrollTracking()
+})
+
 NNE.on('cursor-activity', (e) => {
   if (NNE._spotlighting) {
     NNE.spotlight(null)
@@ -73,9 +77,8 @@ nn.on('beforeunload', (e) => {
 })
 
 nn.on('load', async () => {
-  await utils.loaderSetup(initWidgets)
+  const elements = await utils.loaderSetup(initWidgets)
   // load custom elements
-  const elements = await utils.getSync('/api/custom-elements')
   elements.forEach(ele => {
     utils.loadFile(`/custom-elements/${ele.path}/index.js`)
     if (ele.css) utils.loadStyleSheet(`/custom-elements/${ele.path}/styles.css`)

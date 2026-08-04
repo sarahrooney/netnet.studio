@@ -320,6 +320,7 @@ window.utils = {
     window.loading.anim = setInterval(animFace, 150)
     window.utils.registerColor('--load-bg1', '#fff')
     window.utils.registerColor('--load-bg2', '#fff')
+    return data
   },
 
   loaderUpdate: (msg) => {
@@ -524,10 +525,8 @@ window.utils = {
   },
 
   loadShortCode: (code, layout) => {
-    window.utils.post('./api/expand-url', { key: code }, (json) => {
-      window.location.hash = json.hash
-      window.utils.loadFromCodeHash(layout)
-    })
+    window.utils.fadeOutLoader(false)
+    window.utils._Convo('shortener-retired-nav')
   },
 
   loadCustomDemo: (layout) => {
@@ -613,22 +612,28 @@ window.utils = {
       window.utils.loadGithub(code, window.utils.url.layout)
       window.localStorage.removeItem('gh-auth-temp-code')
     } else {
-      // if they had some code they were working on in the editor
-      // before they got redirected over to GitHub to auth...
-      const decoded = NNE._decode(code.substr(6))
-      window.utils.setCustomRenderer(null)
-      NNE.iframe.removeAttribute('sandbox')
-      NNE.code = decoded
-      NNW.layout = 'dock-left'
-      window.utils.afterLayoutTransition(() => {
-        setTimeout(() => {
-          NNE.cm.refresh()
-          if (!NNE.autoUpdate) NNE.update()
-        }, 10)
-        window.utils.fadeOutLoader(false)
-        window.localStorage.removeItem('gh-auth-temp-code')
-        window.utils._Convo('gh-redirected')
-      })
+      // remove immediately so a failed decode can't cause an infinite stuck-loader loop
+      window.localStorage.removeItem('gh-auth-temp-code')
+      try {
+        // if they had some code they were working on in the editor
+        // before they got redirected over to GitHub to auth...
+        const decoded = NNE._decode(code.substr(6))
+        window.utils.setCustomRenderer(null)
+        NNE.iframe.removeAttribute('sandbox')
+        NNE.code = decoded
+        NNW.layout = 'dock-left'
+        window.utils.afterLayoutTransition(() => {
+          setTimeout(() => {
+            NNE.cm.refresh()
+            if (!NNE.autoUpdate) NNE.update()
+          }, 10)
+          window.utils.fadeOutLoader(false)
+          window.utils._Convo('gh-redirected')
+        })
+      } catch (e) {
+        console.error('loadGHRedirect: failed to restore pre-auth code', e)
+        window.utils.loadDefault()
+      }
     }
   },
 
@@ -787,8 +792,47 @@ window.utils = {
     }
   },
 
-  // main.js listens for these errors + sends them to 'code-review' widget
+  // this helps keep the iframe scrollbar consistent betnween re-renders
+  // if stduent is working on a long page, and they're currently scrolled
+  // well into the middle somewhere, rather than the page scrolling back
+  // up to the top on re-render, it'll replace the scrollbar where it last
+  // left off.
+  _iframeScrollX: 0,
+  _iframeScrollY: 0,
+  _iframeScrollReady: false,
+  resetOutputScroll: () => {
+    window.utils._iframeScrollX = 0
+    window.utils._iframeScrollY = 0
+  },
+  setupOutputScrollTracking: () => {
+    if (window.utils._iframeScrollReady) return
+    window.utils._iframeScrollReady = true
+    let _lastSrc = null
+    NNE.iframe.addEventListener('load', () => {
+      // check if iframe navigated to diff URL (diff file in a project)
+      const src = NNE.iframe.src
+      if (src && _lastSrc) {
+        try {
+          if (new URL(src).pathname !== new URL(_lastSrc).pathname) window.utils.resetOutputScroll()
+        } catch (e) {}
+      }
+      _lastSrc = src
+      // reset iframe scroll bar to last position it was in
+      try {
+        const x = window.utils._iframeScrollX
+        const y = window.utils._iframeScrollY
+        NNE.iframe.contentWindow.scrollTo(x, y)
+        NNE.iframe.contentWindow.addEventListener('scroll', () => {
+          window.utils._iframeScrollX = NNE.iframe.contentWindow.scrollX || 0
+          window.utils._iframeScrollY = NNE.iframe.contentWindow.scrollY || 0
+        }, { passive: true })
+      } catch (e) {}
+    })
+  },
+
   setCustomRenderer: (base, proxy) => {
+    window.utils.resetOutputScroll()
+    // main.js listens for these errors + sends them to 'code-review' widget
     const errMsgr = `<script>
       window.addEventListener('error', function (e) {
         if (e.message) window.parent.postMessage({ type: 'iframe-error', message: e.message, source: e.filename, lineno: e.lineno }, '*')

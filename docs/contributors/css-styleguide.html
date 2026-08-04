@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>&#9685; &#9694; &#9685; docs</title>
+    <meta property="og:title" content="netnet.studio">
+    <meta property="og:description" content="(&#9685; &#9694; &#9685;) netnet.studio docs for developers and contributors">
+    <meta property="og:image" content="https://netnet.studio/images/netnet.png">
+    <meta property="og:url" content="https://netnet.studio">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta property="og:site_name" content="netnet.studio">
+    <meta name="twitter:site" content="@netizenorg">
+
+    <!-- Privacy-friendly analytics by Plausible -->
+    <script async src="/js/visits.js"></script>
+    <script>
+      window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
+      plausible.init({ endpoint: '/api/event' })
+    </script>
+
+    <link rel="icon" type="image/png" href="/images/favicons/learning-guide.png">
+    <link rel="stylesheet" href="/core/styles.css">
+    <link rel="stylesheet" href="/docs/styles.css">
+  </head>
+  <body class="docs">
+    <div class="docs__panel">
+      <div class="docs__panel__header">
+        <button id="hamburger" class="docs__panel__hamburger" aria-expanded="false" role="navigation">
+          <div><span class="screen-reader-only">Open/close mobile menu</span></div>
+        </button>
+        <div class="docs__panel__search">
+          <img src="/images/menu/search.png" alt="Search icon" class="search-icon">
+          <input id="search-input" class="search-input" placeholder="search">
+        </div>
+        <a href="/" class="docs__panel__face">
+          <span class="eye">◕</span> <span class="mouth">◞</span> <span class="eye">◕</span>
+          <span class="screen-reader-only">netnet.studio home</span>
+        </a>
+      </div>
+      <ul class="docs__panel__list" role="navigation"><li class="docs__panel__list-item"><a class="inline-link" href="/docs/">README</a></li><li class="docs__panel__list-item">
+                <a class="header inline-link" href="/docs/students/index.html">Dear Students</a>
+                <ul class="docs__panel__list" role="navigation"><li class="docs__panel__list-item">
+                  <a class="inline-link" href="/docs/students/coding.html">
+                  coding in netnet
+                </a></li><li class="docs__panel__list-item">
+                  <a class="inline-link" href="/docs/students/learning.html">
+                  the Learning Guide
+                </a></li><li class="docs__panel__list-item">
+                  <a class="inline-link" href="/docs/students/ai-integration.html">
+                  connecting local LLM
+                </a></li></ul>
+              </li><li class="docs__panel__list-item">
+                <a class="header inline-link" href="/docs/educators/index.html">Dear Educators</a>
+                <ul class="docs__panel__list" role="navigation"><li class="docs__panel__list-item">
+                  <a class="inline-link" href="/docs/educators/testimonial.html">
+                  Professor Testimonial
+                </a></li><li class="docs__panel__list-item">
+                  <a class="inline-link" href="/docs/educators/url-anatomy.html">
+                  netnet URLs
+                </a></li></ul>
+              </li><li class="docs__panel__list-item">
+                <a class="header inline-link" href="/docs/supporters/index.html">Dear Supporters</a>
+                <ul class="docs__panel__list" role="navigation"><li class="docs__panel__list-item">
+                  <a class="inline-link" href="/docs/supporters/institutional-support.html">
+                  institutional support
+                </a></li></ul>
+              </li><li class="docs__panel__list-item open">
+                <a class="header inline-link" href="/docs/contributors/index.html">Dear Contributors</a>
+                <ul class="docs__panel__list" role="navigation"><li class="docs__panel__list-item">
+                  <a class="inline-link" href="/docs/contributors/bug-report.html">
+                  0. Bug Reports
+                </a></li><li class="docs__panel__list-item">
+                  <a class="inline-link" href="/docs/contributors/the-docs.html">
+                  1. Editing these Docs
+                </a></li><li class="docs__panel__list-item">
+                  <a class="inline-link" href="/docs/contributors/editing-convos.html">
+                  2. Convos and Passages
+                </a></li><li class="docs__panel__list-item">
+                  <a class="inline-link" href="/docs/contributors/code-demos.html">
+                  3. Code Demos
+                </a></li><li class="docs__panel__list-item">
+                  <a class="inline-link" href="/docs/contributors/tutorial-maker.html">
+                  4. Interactive Tutorials
+                </a></li><li class="docs__panel__list-item">
+                  <a class="inline-link" href="/docs/contributors/widgets.html">
+                  5. Widgets
+                </a></li><li class="docs__panel__list-item">
+                  <a class="inline-link" href="/docs/contributors/project-architecture.html">
+                  6. Core Components
+                </a></li><li class="docs__panel__list-item docs__panel__divider"></li><li class="docs__panel__list-item">
+                  <a class="inline-link" href="/docs/contributors/contributor-workflow.html">
+                  TL;DR (for experienced devs)
+                </a></li><li class="docs__panel__list-item">
+                  <a class="inline-link" href="/docs/contributors/manual-setup.html">
+                  Manual Setup
+                </a></li><li class="docs__panel__list-item">
+                  <a class="inline-link" href="/docs/contributors/css-styleguide.html">
+                  CSS Styleguide
+                </a></li><li class="docs__panel__list-item">
+                  <a class="inline-link" href="/docs/contributors/netnet-faces.html">
+                   ◕ ◞ ◕ netnet faces
+                </a></li><li class="docs__panel__list-item">
+                  <a class="inline-link" href="/docs/contributors/dialogue-system.html">
+                  Convos: the Dialogue System
+                </a></li></ul>
+              </li></ul>
+    </div>
+
+    <div class="docs__viewer">
+      <div class="docs__viewer-inner">
+        <h1>CSS styleguide</h1>
+<p>As mentioned previously, styles are written using <a href="https://getbem.com/introduction/" target="_blank">BEM</a> as a class-naming methodology. Declarations are loosely based on <a href="https://github.com/necolas/idiomatic-css" target="_blank">Idiomatic CSS</a>.</p>
+<p>Don&#39;t worry if these concepts are unfamiliar! These aren&#39;t strict rules -- but having these systems as guidelines may make it easier to write or find CSS in the repository if you&#39;re a new or returning contributor.</p>
+<h2>BEM</h2>
+<p>BEM stands for <strong>Block</strong>, <strong>Element</strong>, <strong>Modifier</strong>. It is a methodology of writing class names.</p>
+<p>A <strong>block</strong> is something unique on the page that is independent and meaningful on its own. It can be used in one or more locations across the site. A block is an opportunity to straightforwardly name something with a descriptive class, and should be written in kebob case.</p>
+<p>An example would be <code>.pill-btn</code> taken from <code>core/styles/buttons.css</code>. Pills, a rounded design for buttons, are used in multiple places across netnet.</p>
+<pre><code class="css">.pill-btn {
+  position: relative;
+
+  padding: 5px 15px;
+  border: none;
+  border-radius: 25px;
+  margin-right: 0 5px 0 0;
+
+  color: var(--bg-color);
+  background: var(--fg-color);
+
+  ...
+}</code></pre>
+<p>An <strong>element</strong>, on the other hand, is entirely dependent on an established block. In other words, it denotes a part of a block that is inside of -- and only meaningful within -- its parent. In the context of cascading styles, <strong>elements</strong> don&#39;t inherit their parent block&#39;s styles; rather, they are are semantically tied to their parent blocks due to their specificity. They are written using two underscores to denote its element status: <code>[parent-block]__[child-element]</code>.</p>
+<p>Good examples of <strong>elements</strong> can be found in <code>widgets/styles.css</code>.</p>
+<pre><code class="css">.widget {
+  position: absolute;
+
+  min-width: 200px;
+  min-height: 150px;
+
+  ...
+}
+
+.widget__top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  ...
+}</code></pre>
+<p>While <code>.widget</code> is a block declaring general styles for widgets, <code>.widget__top</code> is an <strong>element</strong> that declares styles only for the top bar of a widget. It&#39;s not used anywhere on netnet besides on the inside of a widget.</p>
+<p>Now, onto <strong>modifiers</strong>! Once a block or element is established, there may be variations of it for altered use across the site. This is where <strong>modifiers</strong> come in, distinguished by adding a <code>--[modifier]</code> flag to the class name. <strong>Modifiers</strong> can be used on a block or element class to change an aspect of its base behavior. They are additive, meaning one block or element can take many modifiers, if necessary. Modifier classes should declare only what it intends to change about its parent class.</p>
+<p>An example would be <code>.pill-btn</code>&#39;s <code>--secondary</code> state, which features alternative colors and slightly different sizing, used in various cases across netnet (to denote a different meaning or to maintain visibility).</p>
+<pre><code class="css">.pill-btn--secondary {
+  display: inline-block;
+
+  padding: 5px 10px;
+  border: 1px solid var(--netizen-meta);
+
+  color: var(--netizen-meta);
+  background-color: var(--bg-color);
+
+  ...
+}</code></pre>
+<p>When writing HTML, modified classes should be used succeeding their base classes, offering various ways to mix and match core design elements with modified states. <code>[class] [class]--[modifier]</code>. Using the above example to create a secondary pill button would look like this in HTML:</p>
+<pre><code class="html">&lt;button class="pill-btn pill-btn--secondary"&gt;&lt;/button&gt;</code></pre>
+<h2>Idiomatic CSS</h2>
+<p>Right now, the only aspect of <a href="https://github.com/necolas/idiomatic-css" target="_blank">Idiomatic CSS</a> we&#39;re adopting is a consistent declaration order format. We&#39;ll likely adopt more in the future.</p>
+<p>We&#39;re writing declarations in <a href="https://github.com/necolas/idiomatic-css?tab=readme-ov-file#declaration-order" target="_blank">order of related properties</a>. Positioning -&gt; Display -&gt; Box Model (<a href="https://every-layout.dev/rudiments/boxes/#the-box-model" target="_blank">from outside in</a>) -&gt; Color -&gt; Type -&gt; Animation. These are loose rules to adopt going forward with the intention of fleshing out stricter rules as we go!</p>
+<pre><code class="css">.selector {
+    /* Positioning */
+    position: absolute;
+    z-index: 10;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+
+    /* Display */
+    display: inline-block;
+    overflow: hidden;
+    box-sizing: border-box;
+    visibility: visible;
+    opacity: 1;
+
+    /* Box Model */
+    margin: 10px;
+    outline: 1px solid #000;
+    border: 10px solid #333;
+    padding: 10px;
+
+    /* Color */
+    color: #fff;
+    background: #000;
+
+    /* Type */
+    font-family: sans-serif;
+    font-size: 16px;
+    text-align: right;
+    white-space: nowrap;
+
+    /* Animation */
+    transition: color .1s ease;
+}</code></pre>
+
+      </div>
+    </div>
+
+    <script src="/netitor.min.js"></script>
+    <script src="/nn.min.js"></script>
+    <script src="/core/libs/fuse.js"></script>
+    <script src="/docs/scripts.js"></script>
+  </body>
+</html>

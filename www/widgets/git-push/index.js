@@ -6,7 +6,7 @@ class GitPush extends Widget {
     this.key = 'git-push'
     this.keywords = ['git', 'github', 'push', 'version', 'upload', 'publish', 'repo', 'repository']
 
-    this.title = 'Version Control <span style="opacity:0.5;padding-left:10px;">(BETA 1.1)</span>'
+    this.title = 'Version Control'
     this.width = 680
 
     Convo.load(this.key, () => { this.convos = window.CONVOS[this.key](this) })
@@ -118,7 +118,7 @@ class GitPush extends Widget {
       window.convo = new Convo(this.convos, 'pushed-now-pull')
     }
     // if web-publish is already open, rerun status indicator
-    if (WIDGETS['web-publish']?.opened) WIDGETS['web-publish']._refreshStatus()
+    if (WIDGETS['web-publish']?.opened) WIDGETS['web-publish']._startRebuildPolling()
   }
 
   _updateCommitMessage (e) {

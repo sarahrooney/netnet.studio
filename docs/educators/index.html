@@ -3,10 +3,10 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>docs.netnet.studio</title>
+    <title>&#9685; &#9694; &#9685; docs</title>
     <meta property="og:title" content="netnet.studio">
     <meta property="og:description" content="(&#9685; &#9694; &#9685;) netnet.studio docs for developers and contributors">
-    <meta property="og:image" content="https://netnet.studio/imags/netnet.png">
+    <meta property="og:image" content="https://netnet.studio/images/netnet.png">
     <meta property="og:url" content="https://netnet.studio">
     <meta name="twitter:card" content="summary_large_image">
     <meta property="og:site_name" content="netnet.studio">
@@ -22,74 +22,87 @@
     <link rel="icon" type="image/png" href="/images/favicons/learning-guide.png">
     <link rel="stylesheet" href="/core/styles.css">
     <link rel="stylesheet" href="/docs/styles.css">
-    <link rel="stylesheet" href="/custom-elements/misc/search-bar/styles.css">
   </head>
   <body class="docs">
     <div class="docs__panel">
-      <span class="docs__panel__intro">
-        <a href="/">
-          ( ◕ ◞ ◕ )
+      <div class="docs__panel__header">
+        <button id="hamburger" class="docs__panel__hamburger" aria-expanded="false" role="navigation">
+          <div><span class="screen-reader-only">Open/close mobile menu</span></div>
+        </button>
+        <div class="docs__panel__search">
+          <img src="/images/menu/search.png" alt="Search icon" class="search-icon">
+          <input id="search-input" class="search-input" placeholder="search">
+        </div>
+        <a href="/" class="docs__panel__face">
+          <span class="eye">◕</span> <span class="mouth">◞</span> <span class="eye">◕</span>
           <span class="screen-reader-only">netnet.studio home</span>
         </a>
-        <span class="ver">v4.0</span>
-      </span>
-      <button id="hamburger" class="docs__panel__hamburger" aria-expanded="false" role="navigation">
-        <div><span class="screen-reader-only">Open/close mobile menu</span></div>
-      </button>
-      <div class="docs__panel__search">
-        <img src="/images/menu/search.png" alt="Search icon" class="search-icon">
-        <input id="search-input" class="search-input" placeholder="search">
       </div>
       <ul class="docs__panel__list" role="navigation"><li class="docs__panel__list-item"><a class="inline-link" href="/docs/">README</a></li><li class="docs__panel__list-item">
                 <a class="header inline-link" href="/docs/students/index.html">Dear Students</a>
                 <ul class="docs__panel__list" role="navigation"><li class="docs__panel__list-item">
                   <a class="inline-link" href="/docs/students/coding.html">
-                  coding
+                  coding in netnet
                 </a></li><li class="docs__panel__list-item">
                   <a class="inline-link" href="/docs/students/learning.html">
-                  learning
+                  the Learning Guide
+                </a></li><li class="docs__panel__list-item">
+                  <a class="inline-link" href="/docs/students/ai-integration.html">
+                  connecting local LLM
+                </a></li></ul>
+              </li><li class="docs__panel__list-item open">
+                <a class="header inline-link" href="/docs/educators/index.html">Dear Educators</a>
+                <ul class="docs__panel__list" role="navigation"><li class="docs__panel__list-item">
+                  <a class="inline-link" href="/docs/educators/testimonial.html">
+                  Professor Testimonial
+                </a></li><li class="docs__panel__list-item">
+                  <a class="inline-link" href="/docs/educators/url-anatomy.html">
+                  netnet URLs
                 </a></li></ul>
               </li><li class="docs__panel__list-item">
-                <a class="header inline-link" href="/docs/educators/index.html">Dear Educators</a>
-                <ul class="docs__panel__list" role="navigation"></ul>
+                <a class="header inline-link" href="/docs/supporters/index.html">Dear Supporters</a>
+                <ul class="docs__panel__list" role="navigation"><li class="docs__panel__list-item">
+                  <a class="inline-link" href="/docs/supporters/institutional-support.html">
+                  institutional support
+                </a></li></ul>
               </li><li class="docs__panel__list-item">
                 <a class="header inline-link" href="/docs/contributors/index.html">Dear Contributors</a>
                 <ul class="docs__panel__list" role="navigation"><li class="docs__panel__list-item">
                   <a class="inline-link" href="/docs/contributors/bug-report.html">
-                  bug report
-                </a></li><li class="docs__panel__list-item">
-                  <a class="inline-link" href="/docs/contributors/code-demos.html">
-                  code demos
-                </a></li><li class="docs__panel__list-item">
-                  <a class="inline-link" href="/docs/contributors/contributor-workflow.html">
-                  contributor workflow
-                </a></li><li class="docs__panel__list-item">
-                  <a class="inline-link" href="/docs/contributors/editing-convos.html">
-                  editing convos
-                </a></li><li class="docs__panel__list-item">
-                  <a class="inline-link" href="/docs/contributors/institutional-support.html">
-                  institutional support
-                </a></li><li class="docs__panel__list-item">
-                  <a class="inline-link" href="/docs/contributors/manual-setup.html">
-                  manual setup
-                </a></li><li class="docs__panel__list-item">
-                  <a class="inline-link" href="/docs/contributors/support.html">
-                  support
+                  0. Bug Reports
                 </a></li><li class="docs__panel__list-item">
                   <a class="inline-link" href="/docs/contributors/the-docs.html">
-                  the docs
+                  1. Editing these Docs
+                </a></li><li class="docs__panel__list-item">
+                  <a class="inline-link" href="/docs/contributors/editing-convos.html">
+                  2. Convos and Passages
+                </a></li><li class="docs__panel__list-item">
+                  <a class="inline-link" href="/docs/contributors/code-demos.html">
+                  3. Code Demos
                 </a></li><li class="docs__panel__list-item">
                   <a class="inline-link" href="/docs/contributors/tutorial-maker.html">
-                  tutorial maker
+                  4. Interactive Tutorials
                 </a></li><li class="docs__panel__list-item">
                   <a class="inline-link" href="/docs/contributors/widgets.html">
-                  widgets
-                </a></li></ul>
-              </li><li class="docs__panel__list-item">
-                <a class="header inline-link" href="/docs/misc/index.html">Other Notes</a>
-                <ul class="docs__panel__list" role="navigation"><li class="docs__panel__list-item">
-                  <a class="inline-link" href="/docs/misc/ai-integration.html">
-                  ai integration
+                  5. Widgets
+                </a></li><li class="docs__panel__list-item">
+                  <a class="inline-link" href="/docs/contributors/project-architecture.html">
+                  6. Core Components
+                </a></li><li class="docs__panel__list-item docs__panel__divider"></li><li class="docs__panel__list-item">
+                  <a class="inline-link" href="/docs/contributors/contributor-workflow.html">
+                  TL;DR (for experienced devs)
+                </a></li><li class="docs__panel__list-item">
+                  <a class="inline-link" href="/docs/contributors/manual-setup.html">
+                  Manual Setup
+                </a></li><li class="docs__panel__list-item">
+                  <a class="inline-link" href="/docs/contributors/css-styleguide.html">
+                  CSS Styleguide
+                </a></li><li class="docs__panel__list-item">
+                  <a class="inline-link" href="/docs/contributors/netnet-faces.html">
+                   ◕ ◞ ◕ netnet faces
+                </a></li><li class="docs__panel__list-item">
+                  <a class="inline-link" href="/docs/contributors/dialogue-system.html">
+                  Convos: the Dialogue System
                 </a></li></ul>
               </li></ul>
     </div>
@@ -97,12 +110,45 @@
     <div class="docs__viewer">
       <div class="docs__viewer-inner">
         <h1>Dear Educators,</h1>
-<p>netnet.studio has been developed iteratively for the last 5 years (in beta from 2020-2025),  alongside creative coding educators and students. It has been successfully used by hundreds of students across universities including the School of the Art Institute of Chicago, the University of Chicago, and the University of Waterloo among others.</p>
-<p>By removing many of the technical hurdles beginners face, netnet.studio offers a smoother ramp into creative coding for the web, saving instructors hours in the classroom and reducing student frustration. Its self-revealing interface design also enables educators to introduce complex topics, like version control with Git, earlier than traditional tools allow, but no sooner than it&#39;s needed. The platform also provides tooling for instructors to create their own annotated demos, project templates, interactive tutorials and so much more!</p>
+<div class="two-col">
+  <div>
+    <p>
+      netnet.studio has been developed iteratively for the last 6 years (in beta from 2020-2026),  alongside creative coding educators and students. It has been successfully used by hundreds of students across universities including the School of the Art Institute of Chicago, the University of Chicago, and the University of Waterloo among others.
+    </p>
+    <p>
+      By removing many of the technical hurdles beginners face, netnet.studio offers a smoother ramp into creative coding for the web, saving instructors hours in the classroom and reducing student frustration. Its self-revealing interface design also enables educators to introduce complex topics, like version control with Git, earlier than traditional tools allow, but no sooner than it's needed. The platform also provides tooling for instructors to create their own annotated demos, project templates, interactive tutorials and so much more!
+    </p>
+  </div>
+  <div>
+    <img src="../assets/images/noschool.jpg" alt="a student using netnet on their laptop, working on GIF drawing app in a garden in Nevers France as part of the NO SCHOOL program" style="border-radius: 10px; border: 4px solid var(--netizen-hint-color);">
+    <p class="tiny-text">
+      A student at the <a href="https://noschoolnevers.com/" target="_blank">NØ SCHOOL</a> (2026) program in Nevers France working on a GIF drawing app using netnet.studio
+    </p>
+  </div>
+</div>
+
+<br>
+
+<blockquote>
+<p>September 2026 will mark my fourth year using netnet in my classroom. I&#39;ve now overseen about 450 students learning HTML and CSS from zero experience to building their own sites in a 12-weeks. Many make the generic, corporate-friendly “Hi, I’m Jasmine, a UX designer” page to help them land co-op placements, but plenty make something fun and strange—K-pop fan sites, an insect bestiary, fashion lookbooks—and they do it with a real measure of confidence. Netnet isn’t the final destination. Most of these students will graduate into professional-grade editors, and that’s exactly the point: it’s the bridge that gets them there.<br><br>
+The tool matters to me for another reason, one I find myself explaining to students every year. Netnet isn’t made by Apple or Adobe. There&#39;s no product-manager-and-focus-group provenance, no features sanded down until all the personality is gone. It’s open source, built by a small team of educators and designers who care about the craft of web design and the pedagogy of teaching the internet as something that is open, free, and hands-on. Despite learning p5.js in a CS context before they get to web design, my students arrive with almost no exposure to what open source is. Netnet gives me a way into that conversation about how not all software is rent-seeking and that there are software relationships where the user is not a consumer.</p>
+<p>— Greg J. Smith, University of Waterloo</p>
+</blockquote>
+<p class="tiny-text">
+  Read Greg's <a href="/docs/educators/testimonial.html">full testimonial here</a> (2026)
+</p>
+
+<p><br><br></p>
+<div class="warning">
+🙏 If you find netnet.studio valuable in your classroom, consider asking your institution to enter into an <a href="../supporters/institutional-support.html">Institutional Support agreement</a> with netizen.org. Supporting institutions receive priority support, curriculum consultation, and other benefits. This support also helps keep the platform free, open source, and actively maintained for everyone.
+</div>
+
+<p><br><br>
+<br><br></p>
 <h2>Using netnet as a Classroom Code Editor</h2>
 <p><video autoplay loop muted playsinline width="720"
-  src="../images/sketching.mp4"
-  poster="../images/poster-sketching.jpg">
+  src="../assets/videos/sketching.mp4"
+  poster="../assets/images/sketching-poster.jpg">
 </video></p>
 <p>One of the simplest and most effective ways to use <strong>netnet</strong> in the classroom is as a browser-based code editor. There’s nothing to download or install—students can go straight to <a href="https://netnet.studio/sketch" target="_blank">netnet.studio/sketch</a> and start coding instantly.</p>
 <p>The editor includes all the standard tools you’d expect: line numbering, syntax highlighting, and code hinting, but it also adds features designed specifically for beginners.</p>
@@ -116,11 +162,15 @@
 </ul>
 <h3>Sharing/Saving &quot;Sketches&quot;</h3>
 <p><video autoplay loop muted playsinline width="720"
-  src="../images/saving-sketch.mp4"
-  poster="../images/poster-saving-sketch.jpg">
+  src="../assets/videos/saving-sketch.mp4"
+  poster="../assets/images/saving-sketch-poster.jpg">
 </video></p>
 <p>While netnet supports the creation of full web <strong>projects</strong> (more on that below), <strong>sketches</strong> (a single HTML file) are a great way to share simple examples with students. To create a sketch simply type (or copy+paste) your code into the editor and press <b>CTRL+S</b> (or <b>CMD+S</b> on Mac). netnet will prompt you to either download your sketch (as an HTML file) or share it (as a netnet URL). When you generate a share link, the code is embedded directly in the URL itself (that’s why it’s so long).</p>
 <p>You can use these as links in class notes, as well as to quickly send a student an example or snippet in response to a question. In fact sending sketches back and fourth is a quick and easy way to asynchronously write code with someone without loosing the history (each link retains it&#39;s own state).</p>
+<br>
+<strong style="font-size:1.25rem">You can link directly to specific sketches, demos, projects, tutorials and widgets, learn how in the <a href="url-anatomy.html">Anatomy of a netnet URL</a> doc!</strong>
+<br>
+
 <h3>Annotate your sketch</h3>
 <p>You can also <strong>annotate a sketch</strong> using the <strong>Demo Maker</strong> widget. This tool lets you highlight specific lines of code and attach notes to them directly within the sketch. Once annotated, you can generate a <strong>shareable URL</strong> where netnet explains each highlighted line through its conversational passages.</p>
 <p><em>✏️ TODO: link to a demo example as well as the Demo Maker with loaded example</em></p>
@@ -129,8 +179,8 @@
 <h3>Multi-file Projects</h3>
 <p>In netnet, students can work in two ways: sketches and projects. A sketch is a single HTML file, perfect for quick experiments, exercises, or demonstrations. A project, on the other hand, is a full website that can include multiple HTML files, CSS and JavaScript files, and other assets like images, fonts, and video. Projects are also versioned and stored on GitHub, making them ideal for work that will be developed over time with the goal of eventually being published to the Web.</p>
 <p><video autoplay loop muted playsinline width="720"
-  src="../images/project-files.mp4"
-  poster="../images/poster-project-files.jpg">
+  src="../assets/videos/project-files.mp4"
+  poster="../assets/images/project-files-poster.jpg">
 </video></p>
 <p>netnet projects not only make GitHub integration effortless (once connected to their GitHub account, students never have to leave netnet), but also helps them build real technical literacy. The <strong>Project Files</strong> widget teaches how file paths work and assists in writing them, while the <strong>Version Control</strong> widget explains what commits are and guides students through creating them. This way, students gain authentic, practical experience with modern web development workflows in an accessible and guided environment.</p>
 <ul>
@@ -148,8 +198,8 @@ Because projects are hosted on GitHub, students can publish their work to the we
 <h2>Using netnet as a &quot;Flipped Classroom&quot;</h2>
 <p>netnet’s <strong>Learning Guide</strong> makes it easy to support a <em>flipped classroom</em> model, where students learn core concepts independently, through interactive lessons, demos, and tutorials, before coming together in class to discuss, experiment, and build. Because the Learning Guide combines explanation, interactivity, and hands-on coding all in one place, students can engage with new material at their own pace, while instructors can dedicate class time to creative exploration, collaboration, and deeper problem-solving.</p>
 <p><video autoplay loop muted playsinline width="720"
-  src="../images/learning-guide.mp4"
-  poster="../images/poster-learning-guide.jpg">
+  src="../assets/videos/learning-guide.mp4"
+  poster="../assets/images/learning-guide-poster.jpg">
 </video></p>
 <p>Each section of the Learning Guide is designed to be self-contained and accessible, so students can move through topics linearly or jump around based on their needs. The built-in interactivity means students aren’t just reading or watching, they’re actively experimenting with code as they go, with guided explanations from netnet. Educators can assign specific lessons or demos as pre-class activities, then use classroom time for guided practice, discussion, or project work that builds on what students explored individually.</p>
 <h3>Learning Modes</h3>
@@ -169,8 +219,6 @@ Hypermedia lessons that blend video, text, and live code. Students can pause at 
 </li>
 </ul>
 <p>To learn more about these features refer to the <a href="../students/learning.html">Student's Learning Doc</a></p>
-<hr>
-<p><em>✏️ TODO: explain our syllabi review and classroom-consulting services (if you&#39;re reading this before we&#39;ve added the details for this, email <a href="mailto:nick@netizen.org">nick@netizen.org</a> to inquire)</em></p>
 
       </div>
     </div>
@@ -178,7 +226,6 @@ Hypermedia lessons that blend video, text, and live code. Students can pause at 
     <script src="/netitor.min.js"></script>
     <script src="/nn.min.js"></script>
     <script src="/core/libs/fuse.js"></script>
-    <script src="/custom-elements/misc/search-bar/index.js"></script>
     <script src="/docs/scripts.js"></script>
   </body>
 </html>

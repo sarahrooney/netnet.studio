@@ -10,6 +10,9 @@ class HyperVideoPlayer extends Widget {
     this.data = null
     this.making = false // set to true when using Tutorial Maker
 
+    // storage bucket
+    this.sb = 'https://netnet-bucket.nyc3.digitaloceanspaces.com'
+
     Convo.load(this.key, () => { this.convos = window.CONVOS[this.key](this) })
 
     this._boundEditWatcher = this._editWatcher.bind(this)
@@ -104,7 +107,10 @@ class HyperVideoPlayer extends Widget {
   // ----------------------------- video controls ------------------------------
 
   updateVideo (name, folder) {
-    const path = folder ? `tutorials/${folder}` : 'videos'
+    const onNetnet = window.location.hostname === 'netnet.studio' || window.location.hostname.endsWith('.netnet.studio')
+    const path = folder
+      ? (onNetnet ? `${this.sb}/tutorials` : `tutorials/${folder}`)
+      : 'videos'
 
     const updateMetadata = () => {
       this._videoMetaDataListener = true
@@ -186,6 +192,12 @@ class HyperVideoPlayer extends Widget {
     this.$('.hvp-toggle > span').classList.remove('pause')
     this.$('.hvp-toggle > span').classList.add('play')
     this.video.pause()
+
+    if (!this.making && this.data) {
+      const name = this.data.metadata.id
+      const t = Math.floor(this.video.currentTime)
+      utils.updateURL(`?tutorial=${name}&t=${t}`)
+    }
 
     this._tempCode = NNE.code
     setTimeout(() => { this._tempCode = NNE.code }, NNE.updateDelay)
@@ -277,6 +289,9 @@ class HyperVideoPlayer extends Widget {
       // POSITION HYPER VIDEO PLAYER
       if (this._vidPositionNeedsUpdate(kf.video)) {
         const obj = JSON.parse(JSON.stringify(kf.video))
+        // HACK: for some reason vid/widgets all seem to be a little shorter
+        // when played back compared to when created in tutorial maker
+        obj.height += 15 // adjusting as a temporary HACK
         this.update(obj, this._tt)
       }
 
@@ -394,7 +409,13 @@ class HyperVideoPlayer extends Widget {
       this.open()
 
       setTimeout(() => {
-        if (time) this.seek(time)
+        if (time) {
+          // set position directly — avoid seek(), since seek() calls play() (which browsers no-like)
+          this.video.currentTime = Number(time)
+          this._updateProgressBar()
+          this._resetKeyframes()
+          this._tempCode = NNE.code
+        }
         this.video.oncanplay = null
         nn.get('load-curtain').hide()
       }, utils.getVal('--layout-transition-time'))
@@ -562,6 +583,7 @@ class HyperVideoPlayer extends Widget {
 
     this.video = nn.create('video')
       .set('preload', 'auto')
+      .set('crossorigin', 'anonymous')
       .css({ display: 'block', width: '100%', borderRadius: 10 })
       .on('loadeddata', () => {
         this.keepInFrame()

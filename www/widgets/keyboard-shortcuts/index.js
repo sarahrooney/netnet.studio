@@ -184,6 +184,18 @@ class KeyboardShortcuts extends Widget {
         }
       },
       {
+        key: `${utils.hotKey()} + G`,
+        nfo: 'git push (backup code to GitHub)',
+        category: 'netnet',
+        condition: (e) => (e.ctrlKey || e.metaKey) && e.key === 'g',
+        callback: (e) => {
+          e.preventDefault()
+          if (WIDGETS['project-files']) {
+            WIDGETS['project-files']._launchGit()
+          }
+        }
+      },
+      {
         key: 'Esc',
         nfo: 'close widget / close search',
         category: 'netnet',
@@ -210,17 +222,6 @@ class KeyboardShortcuts extends Widget {
       },
       {
         hidden: true,
-        key: `${utils.hotKey()} + G`,
-        nfo: 'open git version control',
-        category: 'netnet',
-        condition: (e) => (e.ctrlKey || e.metaKey) && e.key === 'g',
-        callback: (e) => {
-          e.preventDefault()
-          WIDGETS.open('git-push')
-        }
-      },
-      {
-        hidden: true,
         key: `${utils.hotKey()} + Shift + P`,
         nfo: 'open the Search Bar',
         category: 'netnet',
@@ -231,6 +232,17 @@ class KeyboardShortcuts extends Widget {
           window.event.cancelBubble = true
           NNW.menu.search.open()
           return false
+        }
+      },
+      { // NOTE: this is for quickly opening the "dev-cam" used in Nick's YT screen recordings
+        hidden: true,
+        key: `${utils.hotKey()} + \\`,
+        nfo: 'open dev-cam',
+        category: 'coding',
+        condition: (e) => (e.ctrlKey || e.metaKey) && e.key === '\\',
+        callback: (e) => {
+          e.preventDefault()
+          WIDGETS.open('dev-cam')
         }
       }
     ]
