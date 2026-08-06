@@ -7,7 +7,6 @@ class DemoSketches extends Widget {
     this.listed = true
     this.keywords = ['ex', 'code', 'examples', 'snippets', 'sketch', 'demo', 'remix']
     this.title = 'Code Demos'
-    this.width = 612
     this.height = 471
     this.expandable = true
     this.viewingDemo = false
@@ -285,8 +284,7 @@ class DemoSketches extends Widget {
     nn.get(this.$('.demo-icon-rotating')).css({ opacity: 0 })
 
     nn.get(this.$('.demo-search')).css({
-      paddingTop: '94px',
-      top: '0px'
+      top: '92px'
     })
     nn.get(this.$('.demo-sub-title')).css({
       padding: '20px 70px',
@@ -318,8 +316,7 @@ class DemoSketches extends Widget {
     nn.get(this.$('#demo-tunnel')).css({ opacity: 1 })
 
     nn.get(this.$('.demo-search')).css({
-      paddingTop: '137px',
-      top: 'calc(100% / 2)'
+      top: 'calc(100% / 2 + 137px)'
     })
     nn.get(this.$('.demo-sub-title')).css({
       padding: '60px 70px',
