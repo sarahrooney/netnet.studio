@@ -83,7 +83,7 @@
   position: absolute;
   z-index: 2;
   top: calc(100% / 2);
-  width: 100%;
+  width: calc(100% - 30px);
   padding: 60px 70px;
   font-size: 24px;
   line-height: 32px;
@@ -94,10 +94,9 @@
 
 .demo-search {
   position: absolute;
-  top: calc(100% / 2);
+  top: calc(100% / 2 + 137px);
   z-index: 2;
-  width: 100%;
-  padding-top: 137px;
+  width: calc(100% - 30px);
   transition: top var(--demo-screen-tt) var(--sarah-ease),
    padding var(--demo-screen-tt) var(--sarah-ease);
 }
@@ -142,7 +141,7 @@
   scrollbar-width: thin;
 
   height: 70%;
-  width: 100%;
+  width: calc(100% - 30px);
   margin-bottom: 40px;
   padding: 20px;
   border-top: 1px solid var(--netizen-hint-shadow);

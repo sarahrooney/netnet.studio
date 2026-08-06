@@ -1,7 +1,10 @@
 #func-menu-content {
   min-width: 210px;
 
+  padding: 15px;
+
   color: var(--netizen-meta);
+
   webkit-user-select: none;
   user-select: none;
 }
